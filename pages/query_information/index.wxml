@@ -1,0 +1,113 @@
+<!--pages/query_information/index.wxml-->
+<view class="container" style="font-family: 黑体;">
+  <view class="index_swiper">
+    <swiper circular="{{true}}" interval="3000" indicator-dots="{{true}}" autoplay="{{true}}">
+      <swiper-item wx:for="{{swiperList}}" wx:key="id">
+        <navigator url="{{item.navigator_url}}">
+          <image style="width: 750rpx;" mode="widthFix" src="{{item.picUrl}}" />
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view style="width: 700rpx;height: 400rpx;background-color: white;border-radius: 20rpx;display: flex;justify-content: space-around;flex-direction: column;align-items: center;margin-top: 20rpx;">
+    <view style="font-weight: 600;">
+      报名查询 
+    </view>
+    <view style="width: 600rpx;height: 60rpx;background-color: rgb(248, 248, 248);border-radius: 300rpx;display: flex;justify-content: center;align-items: center;">
+      <view style="width: 100rpx;text-align: center;">
+        <text>姓名</text>
+      </view>
+      <view style="display: inline-block;padding-left: 30rpx;">
+        <input style="width: 400rpx;" type="text"/>
+      </view>
+    </view>
+    <view style="width: 600rpx;height: 60rpx;background-color: rgb(248, 248, 248);border-radius: 300rpx;display: flex;justify-content: center;align-items: center;">
+      <view style="width: 100rpx;text-align: center;">
+        <text>手机号</text>
+      </view>
+      <view style="display: inline-block;padding-left: 30rpx;">
+        <input style="width: 400rpx;" type="text"/>
+      </view>
+    </view>
+    <view style="width: 600rpx;height: 60rpx;background-color: rgb(248, 248, 248);border-radius: 300rpx;display: flex;justify-content: center;align-items: center;">
+      <view style="width: 100rpx;text-align: center;">
+        <text>证件号</text>
+      </view>
+      <view style="display: inline-block;padding-left: 30rpx;">
+        <input style="width: 400rpx;" type="text"/>
+      </view>
+      <!-- <view style="width: 150rpx;height: 50rpx;">
+        <view style="display: inline-block;width: 150rpx;height: 50rpx;background-color: rgb(255, 255, 255);color: blue;border-radius: 300rpx;display: flex;align-items: center;justify-content: center;">
+          <text>搜索</text>
+        </view>
+      </view> -->
+    </view>
+    <view style="width: 150rpx;height: 50rpx;" data-type="registrationInfo" bindtap="modalinput">
+        <view style="display: inline-block;width: 150rpx;height: 50rpx;background-color: #325deb;color: rgb(255, 255, 255);border-radius: 300rpx;display: flex;align-items: center;justify-content: center;">
+          <text>搜索</text>
+        </view>
+      </view>
+  </view>
+  <view style="width: 700rpx;height: 400rpx;background-color: white;border-radius: 20rpx;display: flex;justify-content: space-around;flex-direction: column;align-items: center;margin-top: 20rpx;">
+    <view style="font-weight: 600;">
+      完赛查询 
+    </view>
+    <view style="width: 600rpx;height: 60rpx;background-color: rgb(248, 248, 248);border-radius: 300rpx;display: flex;justify-content: center;align-items: center;">
+      <view style="width: 100rpx;text-align: center;">
+        <text>姓名</text>
+      </view>
+      <view style="display: inline-block;padding-left: 30rpx;">
+        <input style="width: 400rpx;" type="text"/>
+      </view>
+    </view>
+    <view style="width: 600rpx;height: 60rpx;background-color: rgb(248, 248, 248);border-radius: 300rpx;display: flex;justify-content: center;align-items: center;">
+      <view style="width: 100rpx;text-align: center;">
+        <text>手机号</text>
+      </view>
+      <view style="display: inline-block;padding-left: 30rpx;">
+        <input style="width: 400rpx;" type="text"/>
+      </view>
+    </view>
+    <view style="width: 600rpx;height: 60rpx;background-color: rgb(248, 248, 248);border-radius: 300rpx;display: flex;justify-content: center;align-items: center;">
+      <view style="width: 100rpx;text-align: center;">
+        <text>证件号</text>
+      </view>
+      <view style="display: inline-block;padding-left: 30rpx;">
+        <input style="width: 400rpx;" type="text"/>
+      </view>
+      <!-- <view style="width: 150rpx;height: 50rpx;">
+        <view style="display: inline-block;width: 150rpx;height: 50rpx;background-color: rgb(255, 255, 255);color: blue;border-radius: 300rpx;display: flex;align-items: center;justify-content: center;">
+          <text>搜索</text>
+        </view>
+      </view> -->
+    </view>
+    <view style="width: 150rpx;height: 50rpx;" data-type="match" bindtap="modalinput">
+        <view style="display: inline-block;width: 150rpx;height: 50rpx;background-color: #325deb;color: rgb(255, 255, 255);border-radius: 300rpx;display: flex;align-items: center;justify-content: center;">
+          <text>搜索</text>
+        </view>
+      </view>
+  </view>
+  <modal hidden="{{hiddenmodalput}}" title="报名查询" data-type="{{currentType}}" confirm-text="确定" cancel-text="关闭" bindcancel="cancel" bindconfirm="confirm">
+    <view>
+      姓名：刘题丰
+    </view>
+    <view>
+      性别：男
+    </view>
+    <view>
+      出生日期：1998-12-19
+    </view>
+    <view>
+      手机号码：18692206925
+    </view>
+    <view>
+      证件类型：身份证
+    </view>
+    <view>
+      证件号码：430181199812190xxx
+    </view>
+  </modal>
+  <modal hidden="{{hiddenmodalputMatch}}" title="完赛查询" data-type="{{currentType}}" confirm-text="下载" cancel-text="关闭" bindcancel="cancel" bindconfirm="downLoadImg">
+    <image src="/images/123.jpg" mode="widthFix"/>
+  </modal>
+</view>

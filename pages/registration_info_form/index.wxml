@@ -1,0 +1,80 @@
+<!--pages/registration_info_form/index.wxml-->
+<view class="container" style="font-family: 微软雅黑;">
+  <view style="width: 700rpx;height: 200rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;">
+    <view style="width: 600rpx;display: inline-block;margin-top: 20rpx;margin-left: 20rpx;">
+      <text style="display: block;font-size: 18px;">个人报名</text>
+      <view style="margin-top: 20rpx;">
+        <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名时间：2023年03月26日 17：00 截止</text>
+        <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名费用：150.00/人</text>
+        <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名方式：需抽签</text>
+      </view>
+    </view>
+  </view>
+  <form bindsubmit="toSubmit">
+    <view style="width: 700rpx;height: 750rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;padding-top: 10rpx;">
+      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
+        <view style="font-weight: 600;font-size: 14px;">真实姓名</view>
+        <view style="margin:10rpx 0;">
+          <view>
+            <input auto-focus placeholder="请输入" name="username" />
+          </view>
+        </view>
+      </view>
+      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
+        <view style="font-weight: 600;font-size: 14px;">性别</view>
+        <view style="margin:10rpx 0;">
+          <view>
+            <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" name="sex">
+              <view class="picker">
+                {{array[index]}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
+        <view style="font-weight: 600;font-size: 14px;">出生日期</view>
+        <view style="margin:10rpx 0;">
+          <view>
+            <picker mode="date" value="{{date}}" start="1900-01-01" end="2023-01-01" bindchange="bindDateChange" name="date">
+              <view class="picker">
+                {{date}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
+        <view style="font-weight: 600;font-size: 14px;">手机号码</view>
+        <view style="margin:10rpx 0;">
+          <view>
+            <input placeholder="请输入" name="phone" />
+          </view>
+        </view>
+      </view>
+      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
+        <view style="font-weight: 600;font-size: 14px;">证件类型</view>
+        <view style="margin:10rpx 0;">
+          <view>
+            <picker mode="selector" bindchange="bindPickerChange" value="{{cardIndex}}" range="{{card}}" name="cardType">
+              <view class="picker">
+                {{card[0]}}
+              </view>
+            </picker>
+          </view>
+        </view>
+      </view>
+      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
+        <view style="font-weight: 600;font-size: 14px;">证件号码</view>
+        <view style="margin:10rpx 0;">
+          <view>
+            <input placeholder="请输入" name="cardCode" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style="margin-top: 20rpx;">
+      <button style="background-color: rgb(75, 100, 240);color: white;" form-type="submit">提交</button>
+    </view>
+  </form>
+</view>

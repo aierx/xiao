@@ -1,0 +1,4 @@
+.index_swiper swiper {
+  height: 430rpx;
+  width: 750rpx;
+}

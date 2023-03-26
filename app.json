@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/directive_rules/index",
+    "pages/registration/index",
+    "pages/query_information/index",
+    "pages/live_photo/index",
+    "pages/registration _instructions/index",
+    "pages/registration_info_form/index",
+    "pages/registration_info_form_team/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0239EE",
+    "navigationBarTitleText": "阜阳城市定向赛",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

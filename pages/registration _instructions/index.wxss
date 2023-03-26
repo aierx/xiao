@@ -1,0 +1,5 @@
+/* pages/registration _instructions/index.wxss */
+.index_swiper swiper {
+  height: 430rpx;
+  width: 750rpx;
+}

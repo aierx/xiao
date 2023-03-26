@@ -1,0 +1,14 @@
+<!--pages/directive_rules/index.wxml-->
+<view class="container" style="font-family: 微软雅黑;">
+  <view class="hd">
+    <block  wx:for="{{navList}}" wx:key="navList">
+      <view class="hd_flex {{nav_type == index ? 'hd_flex_on' : ''}}" catchtap="changeType" data-index="{{index}}">{{item}}</view>
+    </block >
+  </view>
+  <view style="margin-top: 70rpx;">
+    <image src="{{data[nav_type].url}}" style="width: 750rpx;height: 700rpx;"/>
+  </view>
+  <view style="width:700rpx;height: {{scrollViewHeight-840}}rpx;overflow-y: auto;">
+    <text>{{ data[nav_type].content }}</text>
+  </view>
+</view>

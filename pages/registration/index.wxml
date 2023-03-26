@@ -1,0 +1,44 @@
+<!--pages/registration/index.wxml-->
+<view class="container" style="font-family:思源黑体;">
+  <view class="index_swiper">
+    <swiper circular="{{true}}" interval="3000" indicator-dots="{{true}}" autoplay="{{true}}">
+      <swiper-item wx:for="{{swiperList}}" wx:key="id">
+        <navigator url="{{item.navigator_url}}">
+          <image style="width: 750rpx;" mode="widthFix" src="{{item.picUrl}}" />
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <navigator url="/pages/registration _instructions/index?type=team">
+    <view style="width: 700rpx;height: 200rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;">
+      <view style="width: 600rpx;display: inline-block;margin-top: 20rpx;margin-left: 20rpx;">
+        <text style="display: block;font-size: 18px;">团队报名</text>
+        <view style="margin-top: 20rpx;">
+          <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名时间：2023年03月26日 17：00 截止</text>
+          <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名费用：150.00/人</text>
+          <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名方式：需抽签</text>
+        </view>
+      </view>
+      <view style="float: right;width: 60rpx;height:200rpx;background-color: rgb(250,234,236);color: rgb(219, 52, 77);text-align: center;border-bottom-right-radius: 20rpx;border-top-right-radius: 20rpx;  display: flex;align-items: center;justify-content: center;font-size: 14px;">
+        <text>报名中</text>
+        <image src="/images/caret-right.svg" style="width: 40rpx;"/>
+      </view>
+    </view>
+  </navigator>
+  <navigator url="/pages/registration _instructions/index?type=personal">
+    <view style="width: 700rpx;height: 200rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;">
+      <view style="width: 600rpx;display: inline-block;margin-top: 20rpx;margin-left: 20rpx;">
+        <text style="display: block;font-size: 18px;">个人报名</text>
+        <view style="margin-top: 20rpx;">
+          <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名时间：2023年03月26日 17：00 截止</text>
+          <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名费用：150.00/人</text>
+          <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">报名方式：需抽签</text>
+        </view>
+      </view>
+      <view style="float: right;width: 60rpx;height:200rpx;background-color: rgb(250,234,236);color: rgb(219, 52, 77);text-align: center;border-bottom-right-radius: 20rpx;border-top-right-radius: 20rpx;  display: flex;align-items: center;justify-content: center;font-size: 14px;">
+        <text>报名中</text>
+        <image src="/images/caret-right.svg" style="width: 40rpx;"/>
+      </view>
+    </view>
+  </navigator>
+</view>

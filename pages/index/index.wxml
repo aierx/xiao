@@ -1,0 +1,75 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view> -->
+  <view class="index_swiper">
+    <swiper circular="{{true}}" interval="3000" indicator-dots="{{true}}" autoplay="{{true}}">
+      <swiper-item wx:for="{{swiperList}}" wx:key="id">
+        <navigator url="{{item.navigator_url}}">
+          <image style="width: 750rpx;" mode="widthFix" src="{{item.picUrl}}" />
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view>
+    {{apiInfo[0].name}}
+  </view>
+  <view class="usermotto">
+    <navigator class="view_button" style="margin-right: 20rpx;" url="/pages/registration/index">
+        <view class="view_button_text">
+          <text style="display: block;">立即报名</text>
+          <text style="display: block;font-size: 10px;padding-top: 5rpx;">点击报名</text>
+        </view>
+        <view style="display: inline-block;">
+          <image src="/images/search.svg" style="width: 150rpx;height:60rpx;"/>
+        </view>
+    </navigator>
+    <navigator class="view_button"  url="/pages/directive_rules/index">
+      <view class="view_button_text">
+        <text style="display: block;">竞赛规程</text>
+        <text style="display: block;font-size: 10px;padding-top: 5rpx;">最新公告</text>
+      </view>
+      <view style="display: inline-block;">
+        <image src="/images/search.svg" style="width: 150rpx;height:60rpx;"/>
+      </view>
+    </navigator>
+  </view>
+  <view class="usermotto">
+    <navigator class="view_button" style="margin-right: 20rpx;" url="/pages/query_information/index">
+      <view class="view_button_text">
+        <text style="display: block;">信息查询</text>
+        <text style="display: block;font-size: 10px;padding-top: 5rpx;">立即查询</text>
+      </view>
+      <view style="display: inline-block;">
+        <image src="/images/search.svg" style="width: 150rpx;height:60rpx;"/>
+      </view>
+    </navigator>
+    <navigator class="view_button" url="/pages/live_photo/index">
+      <view class="view_button_text">
+        <text style="display: block;">照片直播</text>
+        <text style="display: block;font-size: 10px;padding-top: 5rpx;">精彩瞬间</text>
+      </view>
+      <view style="display: inline-block;">
+        <image src="/images/search.svg" style="width: 150rpx;height:60rpx;"/>
+      </view>
+    </navigator>
+  </view>
+  <view>
+    <image src="/images/zanzhu.jpg" style="width: 750rpx;" mode="widthFix"/>
+  </view>
+</view>
