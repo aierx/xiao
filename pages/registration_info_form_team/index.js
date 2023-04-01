@@ -6,14 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['男', '女'],
-    index: 0,
-    date: '2016-09-01',
-    cardIndex: 0,
+    array: ['请选择', '男', '女'],
     card: ['身份证'],
+    index: 0,
+    date: '请选择',
+    cardIndex: 0,
     personNum: 1,
     formDatamodel: {
-      usrename: 'usrename',
+      username: 'username',
       sex: 'sex',
       date: 'date',
       phone: 'phone',
@@ -23,25 +23,15 @@ Page({
     formData: [
       {
         id:util.wxuuid(),
-        usrename: 'usrename1',
+        username: 'username1',
         sex: 'sex1',
         sexIndex: 0, 
         date: 'date1',
-        dateInfo: '2016-09-01',
+        dateInfo: '请选择',
         phone: 'phone1',
         cardType: 'cardType1',
         cardCode: 'cardCode1',
       },
-      // {
-      //   usrename: 'usrename2',
-      //   sex: 'sex2',
-      //   sexIndex: 0, 
-      //   date: 'date2',
-      //   dateInfo: '2017-09-01',
-      //   phone: 'phone2',
-      //   cardType: 'cardType2',
-      //   cardCode: 'cardCode2',
-      // },
     ]
   },
 
@@ -127,6 +117,10 @@ Page({
   },
   toSubmit(e) {
     console.log(e)
+    const formData = e.detail.value
+    wx.navigateTo({
+      url: `/pages/registration_info_view/index?formData=${JSON.stringify(formData)}`,
+    })
   },
   addVisitor(){
     console.log(Object.keys(this.data.formDatamodel))
@@ -142,7 +136,7 @@ Page({
       formItem[item] = `${this.data.formDatamodel[item]}${this.data.personNum}`
     })
     formItem.sexIndex = 0 
-    formItem.dateInfo = '2016-09-01'
+    formItem.dateInfo = '请选择'
     formItem.id = util.wxuuid()
     // const formItem = 
     // this.data.formDatamodel
@@ -155,10 +149,14 @@ Page({
     this.setData({
       personNum: this.data.personNum - 1
     })
-    console.log(e.currentTarget.dataset.id)
     const formData1 = this.data.formData
-    formData1.splice(e.currentTarget.dataset.id,1)
-    console.log(formData1)
+    if(formData1.length>0){
+      formData1.forEach((data, index) => {
+        if(data.id === e.currentTarget.dataset.id){
+          formData1.splice(index,1)
+        }
+      })
+    }
     this.setData({
       formData: formData1
     })

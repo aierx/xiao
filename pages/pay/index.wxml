@@ -1,0 +1,29 @@
+<view class="container" style="font-family: 微软雅黑;">
+  <view style="width: 700rpx;height: 250rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;">
+    <view style="width: 600rpx;display: inline-block;margin-top: 20rpx;margin-left: 20rpx;">
+      <text style="display: block;font-size: 18px;">阜阳城市定向赛</text>
+      <view style="margin-top: 20rpx;">
+        <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">赛事项目：</text>
+        <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">比赛日期：</text>
+        <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">比赛费用：</text>
+      </view>
+    </view>
+    <view>
+      报名费总计：
+        <text style="color: rgb(216, 20, 20);">￥{{cost}}</text>  
+    </view>
+  </view>
+  <view style="width: 700rpx;height: 100rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;">
+    <view style="width: 600rpx;display: inline-block;margin-left: 20rpx;">
+      <view style="margin-top: 20rpx;">
+        <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">订单号：</text>
+        <text style="display: block;font-size: 12px;color: rgb(165, 165, 165);">创建日期：</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <view style="width: 600rpx;height: 80rpx;display: flex;align-items: center;justify-content: center;background-color: rgb(216, 20, 20);color: white;border-radius: 200rpx;margin-top: 80rpx;">
+      <text>确认支付</text>
+    </view>
+  </view>
+</view>

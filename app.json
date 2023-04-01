@@ -8,7 +8,9 @@
     "pages/live_photo/index",
     "pages/registration _instructions/index",
     "pages/registration_info_form/index",
-    "pages/registration_info_form_team/index"
+    "pages/registration_info_form_team/index",
+    "pages/registration_info_view/index",
+    "pages/pay/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

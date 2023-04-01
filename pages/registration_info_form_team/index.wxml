@@ -11,76 +11,83 @@
     </view>
   </view>
   <form bindsubmit="toSubmit">
-    <view style="width: 700rpx;height: 750rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;padding-top: 10rpx;" wx:for="{{formData}}" wx:key="id">
-      <button hidden="{{!(personNum>1)}}" class="mini-btn" type="warn" size="mini" style="background-color: rgb(230,67,64);color: white;float: right;right: 10rpx;" data-id="{{index}}" bindtap="deleteFormItem">删除</button>
-      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
-        <view style="font-weight: 600;font-size: 14px;">真实姓名</view>
-        <view style="margin:10rpx 0;">
-          <view>
-            <input placeholder="请输入" name="{{item.usrename}}" />
-          </view>
+    <view style="width: 700rpx;height: 820rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;padding-top: 10rpx;" wx:for="{{formData}}" wx:key="id">
+      <view hidden="{{!(personNum>1)}}">
+        <view class="delete_button" data-id="{{item.id}}" bindtap="deleteFormItem">
+          <text style="margin-bottom: 5rpx;">×</text>
         </view>
       </view>
-      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
-        <view style="font-weight: 600;font-size: 14px;">性别</view>
-        <view style="margin:10rpx 0;">
-          <view>
-            <picker mode="selector" data-id="{{index}}" bindchange="bindPickerChange" value="{{item.sexIndex}}" range="{{array}}" name="{{item.sex}}">
-              <view class="picker">
-                {{array[item.sexIndex]}}
-              </view>
-            </picker>
+      <view style="margin-top: 50rpx;">
+        <view class="form_item">
+          <view class="form_item_text">真实姓名</view>
+          <view class="form_item_content">
+            <view>
+              <input placeholder="请输入" style="text-align: right;" name="{{item.username}}" />
+            </view>
           </view>
         </view>
-      </view>
-      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
-        <view style="font-weight: 600;font-size: 14px;">出生日期</view>
-        <view style="margin:10rpx 0;">
-          <view>
-            <picker mode="date" value="{{item.dateInfo}}" data-id="{{index}}" start="1900-01-01" end="2023-01-01" bindchange="bindDateChange" name="{{item.date}}">
-              <view class="picker">
-                {{item.dateInfo}}
-              </view>
-            </picker>
+        <view class="form_item">
+          <view class="form_item_text">性别</view>
+          <view class="form_item_content">
+            <view>
+              <picker mode="selector" data-id="{{index}}" bindchange="bindPickerChange" value="{{item.sexIndex}}" range="{{array}}" name="{{item.sex}}" style="text-align: right;">
+                <view class="picker">
+                  {{array[item.sexIndex]}}
+                </view>
+              </picker>
+            </view>
           </view>
         </view>
-      </view>
-      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
-        <view style="font-weight: 600;font-size: 14px;">手机号码</view>
-        <view style="margin:10rpx 0;">
-          <view>
-            <input placeholder="请输入" name="{{item.phone}}" />
+        <view class="form_item">
+          <view class="form_item_text">出生日期</view>
+          <view class="form_item_content">
+            <view>
+              <picker mode="date" value="{{item.dateInfo}}" data-id="{{index}}" start="1900-01-01" end="2023-01-01" bindchange="bindDateChange" name="{{item.date}}" style="text-align: right;">
+                <view class="picker">
+                  {{item.dateInfo}}
+                </view>
+              </picker>
+            </view>
           </view>
         </view>
-      </view>
-      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
-        <view style="font-weight: 600;font-size: 14px;">证件类型</view>
-        <view style="margin:10rpx 0;">
-          <view>
-            <picker mode="selector" bindchange="bindPickerChange" value="{{cardIndex}}" range="{{card}}" name="{{item.cardType}}">
-              <view class="picker">
-                {{card[0]}}
-              </view>
-            </picker>
+        <view class="form_item">
+          <view class="form_item_text">手机号码</view>
+          <view class="form_item_content">
+            <view>
+              <input placeholder="请输入" name="{{item.phone}}" style="text-align: right;" />
+            </view>
           </view>
         </view>
-      </view>
-      <view style="border-bottom: rgb(230, 230, 230) 1px solid;margin: 15rpx;">
-        <view style="font-weight: 600;font-size: 14px;">证件号码</view>
-        <view style="margin:10rpx 0;">
-          <view>
-            <input placeholder="请输入" name="{{item.cardCode}}" />
+        <view class="form_item">
+          <view class="form_item_text">证件类型</view>
+          <view class="form_item_content">
+            <view>
+              <picker mode="selector" bindchange="bindPickerChange" value="{{cardIndex}}" range="{{card}}" name="{{item.cardType}}" style="text-align: right;">
+                <view class="picker">
+                  {{card[0]}}
+                </view>
+              </picker>
+            </view>
+          </view>
+        </view>
+        <view class="form_item">
+          <view class="form_item_text">证件号码</view>
+          <view class="form_item_content">
+            <view>
+              <input placeholder="请输入" name="{{item.cardCode}}" style="text-align: right;" />
+            </view>
           </view>
         </view>
       </view>
     </view>
+
     <view style="width: 700rpx;margin-top: 20rpx;display: flex;align-items: center;justify-content: center;">
       <view style="width: 600rpx;height: 100rpx;border: rgb(255, 119, 28) 1px dashed;border-radius: 40rpx;color: rgb(255, 119, 28);display: flex;align-items: center;justify-content: center;" bindtap="addVisitor">
         <text>+ 添加游客（最多五个）</text>
       </view>
     </view>
     <view style="margin-top: 20rpx;margin-bottom: 80rpx;">
-      <button style="background-color: rgb(75, 100, 240);color: white;" form-type="submit">提交</button>
+      <button style="background-color: rgb(75, 100, 240);color: white;" form-type="submit">提交预览</button>
     </view>
   </form>
 </view>

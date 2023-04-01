@@ -6,10 +6,10 @@ Page({
    */
   data: {
     array: ['请选择', '男', '女'],
-    index: 0,
+    card: ['身份证'],
     date: '请选择',
+    index: 0,
     cardIndex: 0,
-    card: ['身份证']
   },
 
   bindRegionChange: function (e) {
@@ -90,6 +90,10 @@ Page({
     })
   },
   toSubmit(e){
-    console.log(e)
+    console.log(e.detail.value)
+    const formData = e.detail.value
+    wx.navigateTo({
+      url: `/pages/registration_info_view/index?formData=${JSON.stringify(formData)}`,
+    })
   },
 })
