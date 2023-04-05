@@ -16,7 +16,7 @@
         <view class="form_item_text" style="font-weight: 600;font-size: 14px;">真实姓名</view>
         <view class="form_item_content">
           <view>
-            <input placeholder="请输入" name="username1" style="text-align: right;" />
+            <input placeholder="请输入" name="username" model:value="{{formData.username}}" style="text-align: right;" data-index="1" data-name="username" />
           </view>
         </view>
       </view>
@@ -24,9 +24,9 @@
         <view class="form_item_text" style="font-weight: 600;font-size: 14px;">性别</view>
         <view class="form_item_content">
           <view>
-            <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{array}}" name="sex1" style="text-align: right;">
+            <picker mode="selector" bindchange="bindPickerChange" model:value="{{formData.sex}}" range="{{array}}" name="sex" style="text-align: right;">
               <view class="picker">
-                {{array[index]}}
+                {{array[formData.sex]}}
               </view>
             </picker>
           </view>
@@ -36,9 +36,9 @@
         <view class="form_item_text" style="font-weight: 600;font-size: 14px;">出生日期</view>
         <view class="form_item_content">
           <view>
-            <picker mode="date" value="{{date}}" start="1900-01-01" end="2023-01-01" bindchange="bindDateChange" name="date1" style="text-align: right;">
+            <picker mode="date" model:value="{{formData.date}}" start="1900-01-01" end="2023-01-01" bindchange="bindDateChange" name="date" style="text-align: right;">
               <view class="picker">
-                {{date}}
+                {{formData.date}}
               </view>
             </picker>
           </view>
@@ -48,7 +48,7 @@
         <view class="form_item_text" style="font-weight: 600;font-size: 14px;">手机号码</view>
         <view class="form_item_content">
           <view>
-            <input placeholder="请输入" name="phone1" style="text-align: right;" />
+            <input type="number" maxlength="11" placeholder="请输入" name="phone" style="text-align: right;" model:value="{{formData.phone}}" data-name="phone"/>
           </view>
         </view>
       </view>
@@ -56,7 +56,7 @@
         <view class="form_item_text" style="font-weight: 600;font-size: 14px;">证件类型</view>
         <view class="form_item_content">
           <view>
-            <picker mode="selector" bindchange="bindPickerChange" value="{{cardIndex}}" range="{{card}}" name="cardType1" style="text-align: right;">
+            <picker mode="selector" bindchange="bindPickerChange" model:value="{{formData.cardType}}" range="{{card}}" name="cardType" style="text-align: right;">
               <view class="picker">
                 {{card[0]}}
               </view>
@@ -68,7 +68,7 @@
         <view class="form_item_text" style="font-weight: 600;font-size: 14px;">证件号码</view>
         <view class="form_item_content">
           <view>
-            <input placeholder="请输入" name="cardCode1" style="text-align: right;" />
+            <input type="number" maxlength="18" placeholder="请输入" name="cardCode" value="{{formData.cardCode}}" style="text-align: right;" />
           </view>
         </view>
       </view>

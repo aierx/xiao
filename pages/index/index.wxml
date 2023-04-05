@@ -70,6 +70,8 @@
     </navigator>
   </view>
   <view>
-    <image src="/images/zanzhu.jpg" style="width: 750rpx;" mode="widthFix"/>
+    <!-- <image src="/images/zanzhu.jpg" style="width: 750rpx;" mode="widthFix"/> -->
+    
+    <image src="http://192.168.3.10:80/images/zanzhu1.jpg" style="width: 750rpx;height:{{rpxHeight-720}}rpx;margin-top: 20rpx;"/>
   </view>
 </view>

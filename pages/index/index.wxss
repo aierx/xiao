@@ -19,15 +19,16 @@
 }
 
 .index_swiper swiper {
-  height: 430rpx;
+  height: 400rpx;
   width: 750rpx;
 }
 .view_button{
   margin-top: 25rpx;
   width: 320rpx;
   height: 120rpx;
-  color: white;
-  background-color: #3c6aff;
+  color: rgb(255, 255, 255);
+  background-color: rgb(255,206,101);
+  /* background-color: #ecc134; */
   display: inline-block;
   border-radius: 20rpx;
 }

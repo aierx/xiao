@@ -13,7 +13,7 @@ Page({
         way: '需抽签'
       }
     },
-    array: ['请选择', '男', '女'],
+    array: ['男', '女'],
     card: ['身份证'],
     formDataView: [],
     cost: 150,
@@ -23,13 +23,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(options)
     let formDataView = []
     // 获取表单数据
     if (options?.formData) {
       const formData = JSON.parse(options.formData)
       console.log(formData)
       // const total = 1
-      formDataView = this.formatFormData(formData)
+      // formDataView = this.formatFormData(formData)
+      formDataView = formData
       console.log(formDataView)
     }
     this.setData({

@@ -6,51 +6,51 @@ Page({
    */
   data: {
     swiperList: [],
-    hiddenmodalput:true,
-    hiddenmodalputMatch:true,
+    hiddenmodalput: true,
+    hiddenmodalputMatch: true,
     currentType: '',
   },
 
-  modalinput:function(e){
+  modalinput: function (e) {
     console.log(e.currentTarget.dataset.type)
     this.setData({
       currentType: e.currentTarget.dataset.type
     })
     //registrationInfo  match
-    if(e.currentTarget.dataset.type==='registrationInfo'){
+    if (e.currentTarget.dataset.type === 'registrationInfo') {
       this.setData({
         hiddenmodalput: !this.data.hiddenmodalput
       })
-    }else if(e.currentTarget.dataset.type==='match'){
-      this.setData({
-        hiddenmodalputMatch: !this.data.hiddenmodalputMatch
-      })
-    }
-    
-  },
-  cancel: function(e){
-    if(e.currentTarget.dataset.type==='registrationInfo'){
-      this.setData({
-        hiddenmodalput: !this.data.hiddenmodalput
-      })
-    }else if(e.currentTarget.dataset.type==='match'){
-      this.setData({
-        hiddenmodalputMatch: !this.data.hiddenmodalputMatch
-      })
-    }
-   },
-   confirm: function(e){
-    if(e.currentTarget.dataset.type==='registrationInfo'){
-      this.setData({
-        hiddenmodalput: !this.data.hiddenmodalput
-      })
-    }else if(e.currentTarget.dataset.type==='match'){
+    } else if (e.currentTarget.dataset.type === 'match') {
       this.setData({
         hiddenmodalputMatch: !this.data.hiddenmodalputMatch
       })
     }
 
-   },
+  },
+  cancel: function (e) {
+    if (e.currentTarget.dataset.type === 'registrationInfo') {
+      this.setData({
+        hiddenmodalput: !this.data.hiddenmodalput
+      })
+    } else if (e.currentTarget.dataset.type === 'match') {
+      this.setData({
+        hiddenmodalputMatch: !this.data.hiddenmodalputMatch
+      })
+    }
+  },
+  confirm: function (e) {
+    if (e.currentTarget.dataset.type === 'registrationInfo') {
+      this.setData({
+        hiddenmodalput: !this.data.hiddenmodalput
+      })
+    } else if (e.currentTarget.dataset.type === 'match') {
+      this.setData({
+        hiddenmodalputMatch: !this.data.hiddenmodalputMatch
+      })
+    }
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -106,7 +106,7 @@ Page({
   onShareAppMessage() {
 
   },
-  getSwiperList(){
+  getSwiperList() {
     const demo = [
       {
         businessId: 0,
@@ -181,15 +181,20 @@ Page({
     wx.downloadFile({
       // url: this.data.imgUrl,//图片地址
       url: 'http://192.168.3.10:80/images/123.jpg',//图片地址
-      success (downres) {
+      success(downres) {
         // 保存图片到相册
         wx.saveImageToPhotosAlbum({
           filePath: downres.tempFilePath,
           success(res) {
             wx.hideLoading()
             console.log('保存成功')
+            wx.showToast({
+              title: '下载成功',
+              icon: 'success',
+              duration: 1000
+            })
           },
-          fail(err){
+          fail(err) {
             wx.hideLoading()
             if (err.errMsg === "saveImageToPhotosAlbum:fail:auth denied" || err.errMsg === "saveImageToPhotosAlbum:fail auth deny" || err.errMsg === "saveImageToPhotosAlbum:fail authorize no response") {
               // 这边微信做过调整，必须要在按钮中触发，因此需要在弹框回调中进行调用
@@ -219,6 +224,11 @@ Page({
       },
       fail() {
         wx.hideLoading()
+        wx.showToast({
+          title: '下载失败',
+          icon: 'error',
+          duration: 1000
+        })
         console.log('下载失败，请稍后再试')
       }
     })

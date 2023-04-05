@@ -4,31 +4,36 @@
   flex-direction: column;
   padding: 20rpx 0rpx;
   color: #333;
- }
- .section__title{
+}
+
+.section__title {
   font-size: 40rpx;
   margin: 10rpx 0rpx;
- }
- .form_item {
+}
+
+.form_item {
   border-bottom: rgb(230, 230, 230) 1px solid;
   margin: 15rpx;
   display: flex;
   align-items: center;
   height: 100rpx;
- }
- .form_item_content {
-  margin:10rpx 0;
+}
+
+.form_item_content {
+  margin: 10rpx 0;
   display: inline-block;
   margin-right: 10rpx;
   width: 550rpx;
- }
- .form_item_text {
+}
+
+.form_item_text {
   font-weight: 600;
   font-size: 14px;
   display: inline-block;
   width: 200rpx;
- }
- .delete_button {
+}
+
+.delete_button {
   background-color: rgb(255, 0, 0);
   color: white;
   float: right;
@@ -41,4 +46,23 @@
   font-size: 16px;
   margin-right: 20rpx;
   margin-top: 10rpx;
- }
+}
+
+.form_item::before {
+  content: '*';
+  color: red;
+}
+.card_animation {
+  animation: slideup 0.5s 1;
+}
+@-webkit-keyframes slideup {
+  from {
+    opacity: 0;
+    transform: translateY(100px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px)
+  }
+}

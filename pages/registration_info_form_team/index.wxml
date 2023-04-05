@@ -11,7 +11,7 @@
     </view>
   </view>
   <form bindsubmit="toSubmit">
-    <view style="width: 700rpx;height: 820rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;padding-top: 10rpx;" wx:for="{{formData}}" wx:key="id">
+    <view class="card_animation card" style="width: 700rpx;height: 820rpx;border-radius: 20rpx;background-color: white;margin-top: 20rpx;padding-top: 10rpx;" wx:for="{{formData}}" wx:key="id">
       <view hidden="{{!(personNum>1)}}">
         <view class="delete_button" data-id="{{item.id}}" bindtap="deleteFormItem">
           <text style="margin-bottom: 5rpx;">×</text>
@@ -22,7 +22,7 @@
           <view class="form_item_text">真实姓名</view>
           <view class="form_item_content">
             <view>
-              <input placeholder="请输入" style="text-align: right;" name="{{item.username}}" />
+              <input placeholder="请输入" style="text-align: right;" name="username" model:value="{{item.username}}" data-index="{{index}}" data-name="username" bindblur="handleBlur"/>
             </view>
           </view>
         </view>
@@ -30,9 +30,9 @@
           <view class="form_item_text">性别</view>
           <view class="form_item_content">
             <view>
-              <picker mode="selector" data-id="{{index}}" bindchange="bindPickerChange" value="{{item.sexIndex}}" range="{{array}}" name="{{item.sex}}" style="text-align: right;">
+              <picker mode="selector" data-id="{{index}}" data-index="{{index}}" data-name="sex" bindchange="handleBlur" model:value="{{item.sex}}" range="{{array}}" name="sex" style="text-align: right;">
                 <view class="picker">
-                  {{array[item.sexIndex]}}
+                  {{array[item.sex]}}
                 </view>
               </picker>
             </view>
@@ -42,9 +42,9 @@
           <view class="form_item_text">出生日期</view>
           <view class="form_item_content">
             <view>
-              <picker mode="date" value="{{item.dateInfo}}" data-id="{{index}}" start="1900-01-01" end="2023-01-01" bindchange="bindDateChange" name="{{item.date}}" style="text-align: right;">
+              <picker mode="date" model:value="{{item.date}}" data-id="{{index}}" start="1900-01-01" end="2023-01-01" data-index="{{index}}" data-name="date" bindchange="handleBlur" name="date" style="text-align: right;">
                 <view class="picker">
-                  {{item.dateInfo}}
+                  {{item.date}}
                 </view>
               </picker>
             </view>
@@ -54,7 +54,7 @@
           <view class="form_item_text">手机号码</view>
           <view class="form_item_content">
             <view>
-              <input placeholder="请输入" name="{{item.phone}}" style="text-align: right;" />
+              <input placeholder="请输入" name="phone" model:value="{{item.phone}}" style="text-align: right;" data-index="{{index}}" data-name="phone" bindblur="handleBlur"/>
             </view>
           </view>
         </view>
@@ -62,7 +62,7 @@
           <view class="form_item_text">证件类型</view>
           <view class="form_item_content">
             <view>
-              <picker mode="selector" bindchange="bindPickerChange" value="{{cardIndex}}" range="{{card}}" name="{{item.cardType}}" style="text-align: right;">
+              <picker mode="selector" data-index="{{index}}" data-name="cardType" bindchange="handleBlur" model:value="{{item.cardType}}" range="{{card}}" name="cardType" style="text-align: right;">
                 <view class="picker">
                   {{card[0]}}
                 </view>
@@ -74,7 +74,7 @@
           <view class="form_item_text">证件号码</view>
           <view class="form_item_content">
             <view>
-              <input placeholder="请输入" name="{{item.cardCode}}" style="text-align: right;" />
+              <input placeholder="请输入"  name="cardCode" model:value="{{item.cardCode}}" style="text-align: right;" data-index="{{index}}" data-name="cardCode" bindblur="handleBlur"/>
             </view>
           </view>
         </view>
@@ -82,7 +82,7 @@
     </view>
 
     <view style="width: 700rpx;margin-top: 20rpx;display: flex;align-items: center;justify-content: center;">
-      <view style="width: 600rpx;height: 100rpx;border: rgb(255, 119, 28) 1px dashed;border-radius: 40rpx;color: rgb(255, 119, 28);display: flex;align-items: center;justify-content: center;" bindtap="addVisitor">
+      <view style="width: 600rpx;height: 100rpx;border: rgb(255, 119, 28) 1px dashed;border-radius: 40rpx;color: rgb(255, 119, 28);display: flex;align-items: center;justify-content: center;" data-id='{{item.id}}' bindtap="addVisitor">
         <text>+ 添加游客（最多五个）</text>
       </view>
     </view>

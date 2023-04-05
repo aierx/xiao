@@ -42,3 +42,7 @@
   margin-right: 20rpx;
   margin-top: 10rpx;
  }
+ .form_item::before {
+   content: '*';
+   color: red;
+ }

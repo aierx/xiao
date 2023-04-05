@@ -3,6 +3,6 @@
   "projectname": "fuyang-city-orienteering-dev",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": true
+    "urlCheck": false
   }
 }

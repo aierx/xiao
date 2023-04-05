@@ -14,9 +14,11 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#0239EE",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "阜阳城市定向赛",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F0F0F0",
+    "enablePullDownRefresh": false
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

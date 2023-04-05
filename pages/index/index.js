@@ -12,6 +12,8 @@ Page({
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
     swiperList: [],
     apiInfo:[],
+    code:'',
+    rpxHeight: 600,
   },
   // 事件处理函数
   bindViewTap() {
@@ -29,6 +31,34 @@ Page({
     })
   },
   onLoad() {
+    const that = this
+    // const code = ''
+    wx.getUserInfo({
+      success: (res)=>{
+        console.log(res)
+      }
+    })
+    wx.login({
+      success: (res) => {
+        console.log(res)
+        const code = res.code
+        wx.request({
+          url: `https://api.weixin.qq.com/sns/jscode2session?appid=wx62c3d5ba88ae7450&secret=fab803ddc5f2a2e886321c55cbf1219d&js_code=${code}&grant_type=authorization_code`,
+          success:(res)=>{
+            console.log(res);
+            let userInfo = {}
+            userInfo.openid=res.data.openid
+            //获取到你的openid
+            console.log(userInfo.openid);
+          }
+        })
+        that.setData({
+          code:code
+        })
+      },
+    })
+    console.log('----',this.data.code)
+    
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
@@ -37,6 +67,11 @@ Page({
     // this.getApiInfo()
     this.getSwiperList();
     console.log(app.getHeightAndWidthRPX())
+    const rpxData = app.getHeightAndWidthRPX()
+    console.log(rpxData)
+    this.setData({
+      rpxHeight: rpxData.scrollViewHeight
+    })
   },
   getSwiperList(){
     const demo = [
@@ -46,7 +81,7 @@ Page({
         id: 54095,
         linkType: 0,
         paixu: 0,
-        picUrl: "/images/123.jpg",
+        picUrl: "http://192.168.3.10:80/images/lunbo1.jpg",
         shopId: 0,
         status: 0,
         statusStr: "显示",
@@ -60,7 +95,7 @@ Page({
         id: 54094,
         linkType: 0,
         paixu: 0,
-        picUrl: "/images/123.jpg",
+        picUrl: "http://192.168.3.10:80/images/lunbo1.jpg",
         shopId: 0,
         status: 0,
         statusStr: "显示",
@@ -74,7 +109,7 @@ Page({
         id: 54092,
         linkType: 0,
         paixu: 0,
-        picUrl: "/images/123.jpg",
+        picUrl: "http://192.168.3.10:80/images/lunbo1.jpg",
         shopId: 0,
         status: 0,
         statusStr: "显示",
